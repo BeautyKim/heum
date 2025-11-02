@@ -18,7 +18,7 @@ export default function StatsScreen() {
       </View>
       <View style={styles.content}>
         <View style={styles.placeholder}>
-          <Text style={styles.placeholderText}>
+          <Text style={styles.placeholderText} className="bg-green-500">
             {STATS_TIME_OPTIONS[selectedIndex]} 통계 데이터
           </Text>
         </View>

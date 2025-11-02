@@ -59,37 +59,6 @@ export default function TabLayout() {
                   size={24}
                 />
               </TouchableOpacity>
-
-              {/* 프로필 사진 */}
-              {/* <TouchableOpacity onPress={() => console.log("프로필 클릭")}>
-                {hasProfileImage ? (
-                  <Image
-                    source={userProfileImageSource}
-                    style={{ width: 50, height: 50, borderRadius: 25 }}
-                  />
-                ) : (
-                  <View
-                    style={{
-                      width: 50,
-                      height: 50,
-                      borderRadius: 25,
-                      backgroundColor: "#4185EA",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontSize: 20,
-                        fontWeight: "bold",
-                        color: "white",
-                      }}
-                    >
-                      청
-                    </Text>
-                  </View>
-                )}
-              </TouchableOpacity> */}
             </View>
           ),
           headerStyle: {

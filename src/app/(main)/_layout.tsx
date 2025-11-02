@@ -64,15 +64,15 @@ export default function MainLayout() {
           title: "알림",
           headerTitle: "알림",
 
-          // headerLeft: () => (
-          //   <TouchableOpacity onPress={() => router.back()} activeOpacity={1}>
-          //     <Ionicons name="chevron-back" size={26} color="black" />
-          //   </TouchableOpacity>
-          // ),
           headerRight: () => (
             <View>
               <TouchableOpacity
                 onPress={() => router.push("/(main)/settings/notifications")}
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingLeft: 5,
+                }}
               >
                 <Ionicons name="settings-outline" size={24} color="black" />
               </TouchableOpacity>
@@ -88,12 +88,6 @@ export default function MainLayout() {
         options={{
           title: "알림 설정",
           headerTitle: "알림 설정",
-
-          // headerLeft: () => (
-          //   <TouchableOpacity onPress={() => router.back()} activeOpacity={1}>
-          //     <Ionicons name="chevron-back" size={26} color="black" />
-          //   </TouchableOpacity>
-          // ),
 
           headerShadowVisible: false,
         }}

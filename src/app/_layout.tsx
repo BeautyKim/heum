@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
 import { Stack, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-// import 'react-native-reanimated';
+// import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 
@@ -47,7 +47,7 @@ function RootLayoutNav() {
   const router = useRouter();
 
   const isFirstTime = true;
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   const authenticationReady = true;
 
   useEffect(() => {

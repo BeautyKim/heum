@@ -69,6 +69,7 @@ function FeedCard({ item }: { item: FeedItem }) {
     </View>
   );
 }
+
 const feedCardStyles = StyleSheet.create({
   card: {
     backgroundColor: "white",

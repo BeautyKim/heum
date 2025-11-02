@@ -60,7 +60,6 @@ export default function SegmentedControl({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    // borderRadius: 12,
     borderRadius: 30,
     height: 44,
     padding: 3,
@@ -76,7 +75,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    // borderRadius: 9,
     borderRadius: 30,
 
     shadowColor: "#000",
