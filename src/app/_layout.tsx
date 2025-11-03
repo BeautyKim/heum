@@ -8,7 +8,6 @@ import { useEffect } from "react";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import "global.css";
 
 export { ErrorBoundary } from "expo-router";
@@ -67,22 +66,20 @@ function RootLayoutNav() {
   }, [authenticationReady, isFirstTime, isLoggedIn]); // 상태 변경 시 재실행
 
   return (
-    <GluestackUIProvider>
-      <ThemeProvider value={DefaultTheme}>
-        <Stack>
-          {/* 온보딩 화면 */}
-          <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
+    <ThemeProvider value={DefaultTheme}>
+      <Stack>
+        {/* 온보딩 화면 */}
+        <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
 
-          {/* 인증 화면 */}
-          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        {/* 인증 화면 */}
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
 
-          {/* 메인 화면 (탭 포함) */}
-          <Stack.Screen name="(main)" options={{ headerShown: false }} />
+        {/* 메인 화면 (탭 포함) */}
+        <Stack.Screen name="(main)" options={{ headerShown: false }} />
 
-          {/* 모달 */}
-          <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-        </Stack>
-      </ThemeProvider>
-    </GluestackUIProvider>
+        {/* 모달 */}
+        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+      </Stack>
+    </ThemeProvider>
   );
 }

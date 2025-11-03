@@ -1,9 +1,5 @@
 import { Text, View } from "@/components/common/Themed";
-import {
-  Avatar,
-  AvatarFallbackText,
-  AvatarImage,
-} from "@/components/ui/avatar";
+
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
@@ -29,10 +25,10 @@ export default function MyScreen() {
         {/* 프로필 섹션 */}
         <View>
           <View style={styles.profileSection}>
-            <Avatar size="lg">
+            {/* <Avatar size="lg">
               <AvatarFallbackText>청학동 수달</AvatarFallbackText>
               <AvatarImage source={require("@/assets/images/profile.png")} />
-            </Avatar>
+            </Avatar> */}
             <View>
               <Text style={styles.nickname}>청학동 수달님</Text>
               <Text style={styles.email}>user@example.com</Text>

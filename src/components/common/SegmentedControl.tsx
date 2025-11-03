@@ -26,7 +26,6 @@ export default function SegmentedControl({
     <View style={[styles.container, { backgroundColor: translucentBg }]}>
       {options.map((option, index) => {
         const isSelected = index === selectedIndex;
-
         return (
           <TouchableOpacity
             key={option}

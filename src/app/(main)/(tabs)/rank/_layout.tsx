@@ -1,45 +1,67 @@
-import SegmentedControl from "@/components/common/SegmentedControl";
-import { Href, Slot, usePathname, useRouter } from "expo-router";
-import { useEffect, useState } from "react";
+// src/app/rank/_layout.js (새로 생성/수정)
+import {
+  type MaterialTopTabNavigationEventMap,
+  type MaterialTopTabNavigationOptions,
+  createMaterialTopTabNavigator,
+} from "@react-navigation/material-top-tabs";
+import { ParamListBase, TabNavigationState } from "@react-navigation/native";
+import { withLayoutContext } from "expo-router";
 import { StyleSheet, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const STATS_TIME_OPTIONS: { label: string; path: Href }[] = [
-  { label: "Weekly", path: "/rank" },
-  { label: "All Time", path: "/rank/all" },
-];
+// MaterialTopTabs를 사용할 것이므로, SegmentedControl 관련 import는 모두 제거합니다.
+
+const { Navigator } = createMaterialTopTabNavigator();
+
+export const MaterialTopTabs = withLayoutContext<
+  MaterialTopTabNavigationOptions,
+  typeof Navigator,
+  TabNavigationState<ParamListBase>,
+  MaterialTopTabNavigationEventMap
+>(Navigator);
 
 export default function RankLayout() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  // 현재 경로 기반으로 기본 선택값 설정
-  useEffect(() => {
-    const foundIndex = STATS_TIME_OPTIONS.findIndex(
-      (opt) => opt.path === pathname
-    );
-    if (foundIndex !== -1) setSelectedIndex(foundIndex);
-  }, [pathname]);
-
-  // 선택 변경 시 페이지 이동
-  const handleSelect = (index: number) => {
-    setSelectedIndex(index);
-    router.replace(STATS_TIME_OPTIONS[index].path);
-  };
+  const insets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <View style={styles.segmentedControlWrapper}>
-        <SegmentedControl
-          options={STATS_TIME_OPTIONS.map((opt) => opt.label)}
-          selectedIndex={selectedIndex}
-          alphaValue={0.3} // 배경 투명도
-          activeTextColor={"#4285EA"} // 선택된 탭 텍스트 컬러
-          inactiveTextColor={"#FFFFFF"} // 선택 안된 탭 텍스트 컬러
-          onSelect={handleSelect}
-        />
-      </View>
-      <Slot />
+    <View style={[styles.container]}>
+      <MaterialTopTabs
+        screenOptions={{
+          lazy: true,
+          tabBarStyle: {
+            backgroundColor: "rgba(243, 243, 243, 0.3)",
+            borderRadius: 30,
+            height: 44,
+          },
+
+          tabBarIndicatorStyle: {
+            backgroundColor: "#FFFFFF",
+            height: 44,
+            borderRadius: 30,
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: 1 },
+            shadowOpacity: 0.1,
+            shadowRadius: 2,
+            elevation: 2,
+          },
+
+          tabBarLabelStyle: {
+            fontWeight: "500",
+            textTransform: "none",
+            fontSize: 14,
+          },
+
+          // 텍스트 색상
+          tabBarInactiveTintColor: "#FFFFFF",
+          tabBarActiveTintColor: "#4285EA",
+
+          tabBarPressColor: "transparent",
+          tabBarScrollEnabled: false,
+        }}
+      >
+        <MaterialTopTabs.Screen name="index" options={{ title: "Weekly" }} />
+        <MaterialTopTabs.Screen name="all" options={{ title: "All Time" }} />
+      </MaterialTopTabs>
     </View>
   );
 }
@@ -47,9 +69,6 @@ export default function RankLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4285EA",
-  },
-  segmentedControlWrapper: {
     padding: 16,
     backgroundColor: "#4285EA",
   },

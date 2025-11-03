@@ -1,9 +1,5 @@
 import { Text, View } from "@/components/common/Themed";
-import {
-  Avatar,
-  AvatarFallbackText,
-  AvatarImage,
-} from "@/components/ui/avatar";
+
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import {
@@ -28,13 +24,13 @@ function FeedCard({ item }: { item: FeedItem }) {
     <View style={feedCardStyles.card}>
       <View style={feedCardStyles.header}>
         {/* 아바타 */}
-        <Avatar size="md">
+        {/* <Avatar size="md">
           <AvatarFallbackText>{item.nickname}</AvatarFallbackText>
-          {/* <AvatarImage
+          <AvatarImage
             source={{ uri: item.profileUri }}
-          /> */}
+          /> 
           <AvatarImage source={require("@/assets/images/profile.png")} />
-        </Avatar>
+        </Avatar> */}
 
         {/* 사용자 정보 */}
         <View style={feedCardStyles.userInfo}>
