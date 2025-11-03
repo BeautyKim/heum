@@ -1,4 +1,3 @@
-// src/app/rank/_layout.js (새로 생성/수정)
 import {
   type MaterialTopTabNavigationEventMap,
   type MaterialTopTabNavigationOptions,
@@ -8,8 +7,6 @@ import { ParamListBase, TabNavigationState } from "@react-navigation/native";
 import { withLayoutContext } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-
-// MaterialTopTabs를 사용할 것이므로, SegmentedControl 관련 import는 모두 제거합니다.
 
 const { Navigator } = createMaterialTopTabNavigator();
 
@@ -51,7 +48,6 @@ export default function RankLayout() {
             fontSize: 14,
           },
 
-          // 텍스트 색상
           tabBarInactiveTintColor: "#FFFFFF",
           tabBarActiveTintColor: "#4285EA",
 
