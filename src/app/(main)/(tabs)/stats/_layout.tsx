@@ -1,12 +1,13 @@
-import SegmentedControl from "@/components/common/SegmentedControl";
-import { Href, Slot, usePathname, useRouter } from "expo-router";
-import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { Href, Slot, usePathname, useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import SegmentedControl from '@/components/common/SegmentedControl';
 
 const STATS_TIME_OPTIONS: { label: string; path: Href }[] = [
-  { label: "Week", path: "/stats" },
-  { label: "Month", path: "/stats/month" },
-  { label: "Year", path: "/stats/year" },
+  { label: 'Week', path: '/stats' },
+  { label: 'Month', path: '/stats/month' },
+  { label: 'Year', path: '/stats/year' },
 ];
 
 export default function StatsLayout() {
@@ -16,9 +17,7 @@ export default function StatsLayout() {
 
   // 현재 경로 기반으로 기본 선택값 설정
   useEffect(() => {
-    const foundIndex = STATS_TIME_OPTIONS.findIndex(
-      (opt) => opt.path === pathname
-    );
+    const foundIndex = STATS_TIME_OPTIONS.findIndex((opt) => opt.path === pathname);
     if (foundIndex !== -1) setSelectedIndex(foundIndex);
   }, [pathname]);
 
@@ -45,11 +44,11 @@ export default function StatsLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
   },
   segmentedControlWrapper: {
     padding: 16,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
   },
   content: {
     padding: 16,

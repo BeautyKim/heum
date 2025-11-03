@@ -1,21 +1,18 @@
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { Ionicons } from "@expo/vector-icons";
-import { router, Stack } from "expo-router";
-import { TouchableOpacity, View } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
+import { router, Stack } from 'expo-router';
+import { TouchableOpacity, View } from 'react-native';
 
 export default function MainLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Stack
       screenOptions={{
         // 헤더 공통 기본 스타일
         headerStyle: {
-          backgroundColor: "#FFFFFF",
+          backgroundColor: '#FFFFFF',
         },
-        headerTintColor: "#111827",
+        headerTintColor: '#111827',
         headerTitleStyle: {
-          fontWeight: "600",
+          fontWeight: '600',
         },
       }}
     >
@@ -23,7 +20,7 @@ export default function MainLayout() {
       <Stack.Screen
         name="(tabs)"
         options={{
-          title: "",
+          title: '',
           headerShown: false,
         }}
       />
@@ -32,20 +29,20 @@ export default function MainLayout() {
       <Stack.Screen
         name="record/create"
         options={{
-          title: "수영 기록 추가",
-          presentation: "modal",
+          title: '수영 기록 추가',
+          presentation: 'modal',
         }}
       />
       <Stack.Screen
         name="record/[date]"
         options={{
-          title: "수영 기록 상세",
+          title: '수영 기록 상세',
         }}
       />
       <Stack.Screen
         name="record/edit/[id]"
         options={{
-          title: "기록 수정",
+          title: '기록 수정',
         }}
       />
 
@@ -53,7 +50,7 @@ export default function MainLayout() {
       <Stack.Screen
         name="search/pool"
         options={{
-          title: "수영장 검색",
+          title: '수영장 검색',
         }}
       />
 
@@ -61,16 +58,16 @@ export default function MainLayout() {
       <Stack.Screen
         name="notifications"
         options={{
-          title: "알림",
-          headerTitle: "알림",
+          title: '알림',
+          headerTitle: '알림',
 
           headerRight: () => (
             <View>
               <TouchableOpacity
-                onPress={() => router.push("/(main)/settings/notifications")}
+                onPress={() => router.push('/(main)/settings/notifications')}
                 style={{
-                  justifyContent: "center",
-                  alignItems: "center",
+                  justifyContent: 'center',
+                  alignItems: 'center',
                   paddingLeft: 5,
                 }}
               >
@@ -86,8 +83,8 @@ export default function MainLayout() {
       <Stack.Screen
         name="settings/notifications"
         options={{
-          title: "알림 설정",
-          headerTitle: "알림 설정",
+          title: '알림 설정',
+          headerTitle: '알림 설정',
 
           headerShadowVisible: false,
         }}

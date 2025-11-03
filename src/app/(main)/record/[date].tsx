@@ -1,6 +1,7 @@
-import { StyleSheet, ScrollView } from 'react-native';
-import { View, Text } from '@/components/common/Themed';
 import { useLocalSearchParams } from 'expo-router';
+import { StyleSheet, ScrollView } from 'react-native';
+
+import { View, Text } from '@/components/common/Themed';
 
 export default function RecordDetailScreen() {
   const { date } = useLocalSearchParams();
@@ -11,7 +12,7 @@ export default function RecordDetailScreen() {
         <View style={styles.card}>
           <Text style={styles.date}>{date as string}</Text>
           <Text style={styles.title}>수영 기록 상세</Text>
-          
+
           <View style={styles.statRow}>
             <View style={styles.statItem}>
               <Text style={styles.statLabel}>거리</Text>
@@ -41,7 +42,9 @@ export default function RecordDetailScreen() {
 
         <View style={styles.card}>
           <Text style={styles.sectionTitle}>메모</Text>
-          <Text style={styles.memo}>오늘은 컨디션이 좋았습니다. 평소보다 빠른 페이스로 수영했어요.</Text>
+          <Text style={styles.memo}>
+            오늘은 컨디션이 좋았습니다. 평소보다 빠른 페이스로 수영했어요.
+          </Text>
         </View>
       </View>
     </ScrollView>
@@ -108,4 +111,3 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 });
-

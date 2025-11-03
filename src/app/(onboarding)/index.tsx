@@ -1,21 +1,16 @@
-import { useRouter } from "expo-router";
-import {
-  Image,
-  View as RNView,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
+import { Image, View as RNView, StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Text, View } from "@/components/common/Themed";
-import { useState } from "react";
+import { Text, View } from '@/components/common/Themed';
 
 const ONBOARDING_DATA = [
   {
     id: 1,
     content: (
       <>
-        스마트워치를 연동해{"\n"}
-        모든 수영 기록을 자동으로 {"\n"}
+        스마트워치를 연동해{'\n'}
+        모든 수영 기록을 자동으로 {'\n'}
         불러오세요.
       </>
     ),
@@ -25,7 +20,7 @@ const ONBOARDING_DATA = [
     id: 2,
     content: (
       <>
-        수영 일지를 남기고,{"\n"}
+        수영 일지를 남기고,{'\n'}
         수영 기록을 피드로 공유하세요.
       </>
     ),
@@ -35,7 +30,7 @@ const ONBOARDING_DATA = [
     id: 3,
     content: (
       <>
-        나의 성장과 순위를 확인하며{"\n"}
+        나의 성장과 순위를 확인하며{'\n'}
         매일 더 나아가세요.
       </>
     ),
@@ -61,13 +56,13 @@ export default function OnboardingScreen() {
       setCurrentPageIndex(currentPageIndex + 1); // 다음 페이지로 이동
     } else {
       // 마지막 페이지에서 탭하면 인증 화면으로 이동
-      router.replace("/(auth)");
+      router.replace('/(auth)');
     }
   };
 
   // 인증 화면으로 최종 이동하는 함수 (시작하기 버튼용)
   const handleStart = () => {
-    router.replace("/(auth)");
+    router.replace('/(auth)');
   };
 
   // 인디케이터 렌더링 함수
@@ -75,10 +70,7 @@ export default function OnboardingScreen() {
     return Array.from({ length: TOTAL_PAGES }).map((_, index) => (
       <RNView
         key={index}
-        style={[
-          styles.dot,
-          index === currentPageIndex ? styles.activeDot : null,
-        ]}
+        style={[styles.dot, index === currentPageIndex ? styles.activeDot : null]}
       />
     ));
   };
@@ -95,13 +87,11 @@ export default function OnboardingScreen() {
       <View style={styles.contentSection}>
         <RNView style={styles.header}>
           <Image
-            source={require("@/assets/images/heum-logo.png")}
+            source={require('@/assets/images/heum-logo.png')}
             style={styles.logo}
             resizeMode="contain"
           />
-          <RNView style={styles.indicatorContainer}>
-            {renderIndicators()}
-          </RNView>
+          <RNView style={styles.indicatorContainer}>{renderIndicators()}</RNView>
         </RNView>
 
         {/* 텍스트 */}
@@ -126,7 +116,7 @@ export default function OnboardingScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     paddingHorizontal: 32,
   },
 
@@ -144,51 +134,51 @@ const styles = StyleSheet.create({
   },
 
   indicatorContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginLeft: 4,
   },
   dot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: "#D1D5DB",
+    backgroundColor: '#D1D5DB',
     marginHorizontal: 3,
   },
   activeDot: {
-    backgroundColor: "#111827",
+    backgroundColor: '#111827',
     width: 16,
   },
 
   content: {
     fontSize: 24,
-    fontWeight: "700",
-    color: "#111827",
+    fontWeight: '700',
+    color: '#111827',
     lineHeight: 32,
   },
 
   bottomSection: {
     flex: 1,
     paddingBottom: 40, // 하단에서 띄우는 간격
-    justifyContent: "flex-end",
-    alignItems: "center",
+    justifyContent: 'flex-end',
+    alignItems: 'center',
     height: 100, // 버튼 영역 높이 확보
   },
 
   tabButtonText: {
-    color: "#5D5D5B",
+    color: '#5D5D5B',
     fontSize: 14,
   },
 
   startButton: {
-    backgroundColor: "#4285EA",
+    backgroundColor: '#4285EA',
     borderRadius: 12,
     padding: 16,
-    width: "100%",
-    alignItems: "center",
+    width: '100%',
+    alignItems: 'center',
   },
   startButtonText: {
-    color: "white",
+    color: 'white',
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });

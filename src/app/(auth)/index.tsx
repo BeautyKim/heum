@@ -1,60 +1,44 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function AuthScreen() {
   const router = useRouter();
 
   const handleLogin = (type: string) => {
     console.log(`${type} 로그인`);
-    router.replace("/(main)/(tabs)");
+    router.replace('/(main)/(tabs)');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.logoSection}>
         <Image
-          source={require("@/assets/images/heum-logo.png")}
+          source={require('@/assets/images/heum-logo.png')}
           style={styles.logo}
           resizeMode="contain"
         />
         <Text style={styles.title}>환영합니다!</Text>
         <Text style={styles.subtitle}>
-          3초 만에 가입하고,{"\n"}나만의 훈련 기록을 지금 바로 시작하세요.
+          3초 만에 가입하고,{'\n'}나만의 훈련 기록을 지금 바로 시작하세요.
         </Text>
       </View>
 
       <View style={styles.buttonGroup}>
         {/* Google */}
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => handleLogin("Google")}
-        >
+        <TouchableOpacity style={styles.button} onPress={() => handleLogin('Google')}>
           <MaterialCommunityIcons name="google" size={20} color="#000" />
           <Text style={styles.buttonText}>구글로 시작하기</Text>
         </TouchableOpacity>
 
         {/* Apple */}
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => handleLogin("Apple")}
-        >
+        <TouchableOpacity style={styles.button} onPress={() => handleLogin('Apple')}>
           <MaterialCommunityIcons name="apple" size={20} color="#000" />
           <Text style={styles.buttonText}>애플로 시작하기</Text>
         </TouchableOpacity>
 
         {/* Kakao */}
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => handleLogin("Kakao")}
-        >
+        <TouchableOpacity style={styles.button} onPress={() => handleLogin('Kakao')}>
           <MaterialCommunityIcons name="message-text" size={20} color="#000" />
           <Text style={styles.buttonText}>카카오로 시작하기</Text>
         </TouchableOpacity>
@@ -66,12 +50,12 @@ export default function AuthScreen() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingHorizontal: 32,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
   logoSection: {
-    alignItems: "flex-start",
+    alignItems: 'flex-start',
     marginBottom: 80,
   },
   logo: {
@@ -80,32 +64,32 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: "700",
-    color: "#111827",
+    fontWeight: '700',
+    color: '#111827',
     marginBottom: 10,
   },
   subtitle: {
     fontSize: 15,
-    color: "#6B7280",
+    color: '#6B7280',
     lineHeight: 22,
   },
   buttonGroup: {
-    width: "100%",
+    width: '100%',
     gap: 10,
   },
   button: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     gap: 8,
-    borderColor: "#E5E7EB",
+    borderColor: '#E5E7EB',
     borderWidth: 1,
     borderRadius: 12,
     paddingVertical: 16,
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: "500",
-    color: "#111827",
+    fontWeight: '500',
+    color: '#111827',
   },
 });

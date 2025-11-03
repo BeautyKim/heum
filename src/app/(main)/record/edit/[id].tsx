@@ -1,12 +1,13 @@
-import { StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
-import { View, Text } from '@/components/common/Themed';
-import { useState } from 'react';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useState } from 'react';
+import { StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+
+import { View, Text } from '@/components/common/Themed';
 
 export default function EditRecordScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams();
-  
+
   const [distance, setDistance] = useState('750');
   const [duration, setDuration] = useState('46');
   const [memo, setMemo] = useState('오늘은 컨디션이 좋았습니다.');
@@ -128,5 +129,3 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
-
-

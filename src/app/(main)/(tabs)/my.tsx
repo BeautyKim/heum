@@ -1,26 +1,18 @@
-import { Text, View } from "@/components/common/Themed";
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { router } from "expo-router";
-import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Text, View } from '@/components/common/Themed';
 
 export default function MyScreen() {
   const insets = useSafeAreaInsets();
-
-  // 프로필 사진
-  const localProfileImage = require("@/assets/images/profile.png");
-  const userProfileImageSource = localProfileImage;
-  const hasProfileImage = !!userProfileImageSource;
 
   // 스마트 워치 연결 상태
   const isConnected = true;
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={[{ paddingTop: insets.top }]}
-    >
+    <ScrollView style={styles.container} contentContainerStyle={[{ paddingTop: insets.top }]}>
       <View style={styles.content}>
         {/* 프로필 섹션 */}
         <View>
@@ -69,14 +61,10 @@ export default function MyScreen() {
                   <View
                     style={[
                       styles.statusDot,
-                      isConnected
-                        ? styles.connectedDot
-                        : styles.disconnectedDot,
+                      isConnected ? styles.connectedDot : styles.disconnectedDot,
                     ]}
                   />
-                  <Text style={styles.statusText}>
-                    {isConnected ? "연결됨" : "연결 안됨"}
-                  </Text>
+                  <Text style={styles.statusText}>{isConnected ? '연결됨' : '연결 안됨'}</Text>
                 </View>
 
                 {/* 화살표 */}
@@ -96,7 +84,7 @@ export default function MyScreen() {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.menuItem}
-              onPress={() => router.push("/(main)/settings/notifications")}
+              onPress={() => router.push('/(main)/settings/notifications')}
             >
               <View style={styles.iconTextWrapper}>
                 <Ionicons name="notifications" size={18} color="black" />
@@ -164,91 +152,91 @@ export default function MyScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
   },
   content: {
     padding: 16,
   },
   // 프로필 섹션
   profileSection: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "white",
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
     gap: 10,
     marginBottom: 16,
   },
   nickname: {
     fontSize: 20,
-    fontWeight: "bold",
-    color: "#111827",
+    fontWeight: 'bold',
+    color: '#111827',
   },
   email: {
     fontSize: 14,
-    color: "#6B7280",
+    color: '#6B7280',
   },
   bio: {
     fontSize: 14,
-    color: "#B0B0B0",
+    color: '#B0B0B0',
     paddingHorizontal: 5,
   },
   // 피드 섹션
   feedSection: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
     gap: 50,
     paddingHorizontal: 5,
     paddingVertical: 50,
   },
-  counts: { fontWeight: "bold" },
-  texts: { color: "#5B5B59" },
+  counts: { fontWeight: 'bold' },
+  texts: { color: '#5B5B59' },
   // 메뉴 섹션
   menuSection: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   menuGroup: {
-    display: "flex",
+    display: 'flex',
     gap: 10,
-    backgroundColor: "#F3F3F3",
+    backgroundColor: '#F3F3F3',
     borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginBottom: 5,
   },
   menuItemsTitle: {
-    color: "#B0B0B0",
+    color: '#B0B0B0',
     fontSize: 12,
     marginTop: 15,
     marginBottom: 5,
   },
   menuItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 5,
   },
   iconTextWrapper: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 10,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
   },
   menuText: {
-    color: "#111827",
+    color: '#111827',
   },
   // 스마트 워치 연결 상태
   endGroupWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 10,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
   },
   statusWrapper: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 5,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
   },
   statusDot: {
     width: 10,
@@ -256,19 +244,19 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   connectedDot: {
-    backgroundColor: "#56D953",
+    backgroundColor: '#56D953',
   },
-  disconnectedDot: { backgroundColor: "#EF4444" },
+  disconnectedDot: { backgroundColor: '#EF4444' },
   statusText: {},
   // 로그아웃
   logoutButton: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 16,
     padding: 16,
-    alignItems: "center",
+    alignItems: 'center',
   },
   logoutText: {
-    fontWeight: "600",
-    color: "#EF4444",
+    fontWeight: '600',
+    color: '#EF4444',
   },
 });

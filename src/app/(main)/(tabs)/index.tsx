@@ -1,5 +1,6 @@
-import { Text, View } from "@/components/common/Themed";
-import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+
+import { Text, View } from '@/components/common/Themed';
 
 export default function DashboardScreen() {
   return (
@@ -120,78 +121,78 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
   },
   content: {
     padding: 16,
   },
   welcomeSection: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 16,
     marginBottom: 16,
   },
   welcomeTitle: {
     fontSize: 28,
-    fontWeight: "bold",
-    color: "#111827",
+    fontWeight: 'bold',
+    color: '#111827',
   },
   welcomeSubtitle: {
     fontSize: 28,
-    fontWeight: "bold",
-    color: "#111827",
+    fontWeight: 'bold',
+    color: '#111827',
     marginBottom: 8,
   },
   welcomeMessage: {
     fontSize: 16,
-    color: "#6B7280",
+    color: '#6B7280',
   },
   card: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderWidth: 2,
-    borderColor: "#F3F3F3",
+    borderColor: '#F3F3F3',
     borderRadius: 16,
     padding: 16,
     marginBottom: 16,
   },
   cardHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 12,
   },
   cardTitle: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#111827",
+    fontWeight: '600',
+    color: '#111827',
   },
   arrow: {
     fontSize: 24,
-    color: "#9CA3AF",
+    color: '#9CA3AF',
   },
   todaySwim: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   todaySwimLabel: {
     fontSize: 14,
-    color: "#6B7280",
+    color: '#6B7280',
     marginBottom: 8,
   },
   todaySwimDistance: {
     fontSize: 48,
-    fontWeight: "bold",
-    color: "#111827",
+    fontWeight: 'bold',
+    color: '#111827',
     marginBottom: 16,
   },
   statsRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
   },
   statItem: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     padding: 12,
-    backgroundColor: "#F9FAFB",
+    backgroundColor: '#F9FAFB',
     borderRadius: 12,
     marginHorizontal: 4,
   },
@@ -201,65 +202,65 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 10,
-    color: "#6B7280",
+    color: '#6B7280',
     marginBottom: 4,
   },
   statValue: {
     fontSize: 14,
-    fontWeight: "600",
-    color: "#111827",
+    fontWeight: '600',
+    color: '#111827',
   },
   calendar: {
     paddingVertical: 8,
   },
   weekDays: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginBottom: 12,
   },
   weekDay: {
     fontSize: 12,
-    color: "#9CA3AF",
-    fontWeight: "600",
+    color: '#9CA3AF',
+    fontWeight: '600',
   },
   dates: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   date: {
     fontSize: 16,
-    color: "#111827",
-    fontWeight: "500",
+    color: '#111827',
+    fontWeight: '500',
   },
   dateActive: {
-    color: "#3B82F6",
-    fontWeight: "bold",
+    color: '#3B82F6',
+    fontWeight: 'bold',
   },
   goals: {
     paddingVertical: 8,
   },
   goalItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 12,
   },
   goalLabel: {
     fontSize: 14,
-    color: "#6B7280",
+    color: '#6B7280',
   },
   goalValue: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#3B82F6",
+    fontWeight: '600',
+    color: '#3B82F6',
   },
   weather: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   weatherItem: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     padding: 12,
   },
   weatherIcon: {
@@ -268,7 +269,7 @@ const styles = StyleSheet.create({
   },
   weatherLabel: {
     fontSize: 10,
-    color: "#6B7280",
-    textAlign: "center",
+    color: '#6B7280',
+    textAlign: 'center',
   },
 });

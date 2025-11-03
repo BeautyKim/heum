@@ -1,33 +1,22 @@
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { router, Tabs } from "expo-router";
-import React from "react";
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { router, Tabs } from 'expo-router';
+import React from 'react';
+import { TouchableOpacity, View } from 'react-native';
 
-import { useColorScheme } from "@/hooks/useColorScheme";
-import { TouchableOpacity, View } from "react-native";
-
-function Icon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
+function Icon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
   return <FontAwesome style={{ marginBottom: 5 }} size={24} {...props} />;
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
-  const localProfileImage = require("@/assets/images/profile.png");
-  const userProfileImageSource = localProfileImage;
-  const hasProfileImage = !!userProfileImageSource;
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#4285EA",
-        tabBarInactiveTintColor: "#888",
+        tabBarActiveTintColor: '#4285EA',
+        tabBarInactiveTintColor: '#888',
         tabBarStyle: {
-          backgroundColor: "#FFFFFF",
+          backgroundColor: '#FFFFFF',
           borderTopWidth: 1,
-          borderTopColor: "#E5E7EB",
+          borderTopColor: '#E5E7EB',
           height: 80,
           paddingBottom: 8,
           paddingTop: 8,
@@ -38,31 +27,25 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "홈",
+          title: '홈',
           tabBarIcon: ({ color }) => <Icon name="home" color={color} />,
-          headerTitle: "",
+          headerTitle: '',
           headerRight: () => (
             <View
               style={{
-                flexDirection: "row",
-                alignItems: "center",
+                flexDirection: 'row',
+                alignItems: 'center',
                 marginRight: 16,
               }}
             >
               {/* 알림 버튼 */}
-              <TouchableOpacity
-                onPress={() => router.push("/(main)/notifications")}
-              >
-                <Ionicons
-                  name="notifications-outline"
-                  color="black"
-                  size={24}
-                />
+              <TouchableOpacity onPress={() => router.push('/(main)/notifications')}>
+                <Ionicons name="notifications-outline" color="black" size={24} />
               </TouchableOpacity>
             </View>
           ),
           headerStyle: {
-            backgroundColor: "white",
+            backgroundColor: 'white',
           },
           headerTransparent: false,
           headerShadowVisible: false,
@@ -71,12 +54,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="stats"
         options={{
-          title: "통계",
+          title: '통계',
           tabBarIcon: ({ color }) => <Icon name="bar-chart" color={color} />,
-          headerTitle: "통계",
+          headerTitle: '통계',
           headerRight: () => (
             <TouchableOpacity
-              onPress={() => router.push("/(main)/notifications")}
+              onPress={() => router.push('/(main)/notifications')}
               style={{ marginRight: 16 }}
             >
               <Ionicons name="notifications-outline" color="black" size={24} />
@@ -90,28 +73,22 @@ export default function TabLayout() {
       <Tabs.Screen
         name="feed"
         options={{
-          title: "피드",
+          title: '피드',
           tabBarIcon: ({ color }) => <Icon name="hashtag" color={color} />,
-          headerTitle: "피드",
+          headerTitle: '피드',
           headerRight: () => (
             <View
               style={{
-                flexDirection: "row",
-                alignItems: "center",
+                flexDirection: 'row',
+                alignItems: 'center',
                 marginRight: 16,
                 gap: 10,
               }}
             >
-              <TouchableOpacity
-                onPress={() => router.push("/(main)/notifications")}
-              >
-                <Ionicons
-                  name="notifications-outline"
-                  color="black"
-                  size={24}
-                />
+              <TouchableOpacity onPress={() => router.push('/(main)/notifications')}>
+                <Ionicons name="notifications-outline" color="black" size={24} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => console.log("검색 클릭")}>
+              <TouchableOpacity onPress={() => console.log('검색 클릭')}>
                 <Ionicons name="search-outline" size={24} color="black" />
               </TouchableOpacity>
             </View>
@@ -123,35 +100,29 @@ export default function TabLayout() {
       <Tabs.Screen
         name="rank"
         options={{
-          title: "랭킹",
+          title: '랭킹',
           tabBarIcon: ({ color }) => <Icon name="trophy" color={color} />,
-          headerTitle: "랭킹",
-          headerTintColor: "white",
+          headerTitle: '랭킹',
+          headerTintColor: 'white',
           headerRight: () => (
             <View
               style={{
-                flexDirection: "row",
-                alignItems: "center",
+                flexDirection: 'row',
+                alignItems: 'center',
                 marginRight: 16,
                 gap: 10,
               }}
             >
-              <TouchableOpacity
-                onPress={() => router.push("/(main)/notifications")}
-              >
-                <Ionicons
-                  name="notifications-outline"
-                  color="white"
-                  size={24}
-                />
+              <TouchableOpacity onPress={() => router.push('/(main)/notifications')}>
+                <Ionicons name="notifications-outline" color="white" size={24} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => console.log("필터 클릭")}>
+              <TouchableOpacity onPress={() => console.log('필터 클릭')}>
                 <Ionicons name="options-outline" size={24} color="white" />
               </TouchableOpacity>
             </View>
           ),
           headerStyle: {
-            backgroundColor: "#4285EA",
+            backgroundColor: '#4285EA',
           },
           headerTransparent: false,
           headerShadowVisible: false,
@@ -160,16 +131,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="my"
         options={{
-          title: "마이",
+          title: '마이',
           tabBarIcon: ({ color }) => <Icon name="user" color={color} />,
-          headerTitle: "",
+          headerTitle: '',
           headerRight: () => (
             <View
               style={{
                 marginRight: 16,
               }}
             >
-              <TouchableOpacity onPress={() => console.log("프로필 설정 클릭")}>
+              <TouchableOpacity onPress={() => console.log('프로필 설정 클릭')}>
                 <Ionicons name="settings-outline" size={24} color="black" />
               </TouchableOpacity>
             </View>

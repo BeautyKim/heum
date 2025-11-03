@@ -1,13 +1,8 @@
-import { Text, View } from "@/components/common/Themed";
+import { Ionicons } from '@expo/vector-icons';
+import React, { useCallback, useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Ionicons } from "@expo/vector-icons";
-import React, { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View } from '@/components/common/Themed';
 
 type FeedItem = {
   id: number;
@@ -39,7 +34,7 @@ function FeedCard({ item }: { item: FeedItem }) {
         </View>
 
         {/* 옵션 버튼 */}
-        <TouchableOpacity onPress={() => console.log("옵션")}>
+        <TouchableOpacity onPress={() => console.log('옵션')}>
           <Ionicons name="ellipsis-horizontal" size={24} color="#E7E7E7" />
         </TouchableOpacity>
       </View>
@@ -68,22 +63,22 @@ function FeedCard({ item }: { item: FeedItem }) {
 
 const feedCardStyles = StyleSheet.create({
   card: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: "#F3F3F3",
+    borderColor: '#F3F3F3',
     borderRadius: 16,
     padding: 16,
     marginBottom: 15,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
     elevation: 3,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 12,
     gap: 10,
   },
@@ -91,7 +86,7 @@ const feedCardStyles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: "#90EE90",
+    backgroundColor: '#90EE90',
     marginRight: 12,
   },
   userInfo: {
@@ -100,37 +95,37 @@ const feedCardStyles = StyleSheet.create({
   },
   nickname: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   email: {
     fontSize: 12,
-    color: "#888",
+    color: '#888',
   },
   content: {
     marginBottom: 15,
   },
   bodyText: {
     lineHeight: 22,
-    color: "#111827",
+    color: '#111827',
   },
   footer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 20,
     paddingTop: 8,
   },
   actionButton: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   likesCount: {
     fontSize: 12,
     marginLeft: 5,
-    color: "#EE685A",
+    color: '#EE685A',
   },
   commentsCount: {
     fontSize: 12,
     marginLeft: 5,
-    color: "#6B7280",
+    color: '#6B7280',
   },
 });
 
@@ -139,12 +134,12 @@ const fetchData = (page: number): FeedItem[] => {
   const pageSize = 10;
   return Array.from({ length: pageSize }, (_, i) => {
     const globalIndex = (page - 1) * pageSize + i;
-    const nickname = "청학동 수달";
-    const email = "user@example.com";
+    const nickname = '청학동 수달';
+    const email = 'user@example.com';
     const content = `이번 주에 총 12.4km를 수영하면서 드디어 1등을 차지했어요 🏊‍♂️💦 꾸준히 하니까 점점 기록이 쌓이는 게 보이네요. 다음 주에도 도전! 💪 같이 수영하실 분 있나요? 🌊`;
     const likes = 15;
     const comments = 3;
-    const profileUri = "";
+    const profileUri = '';
 
     return {
       id: globalIndex,
@@ -164,12 +159,10 @@ export default function FeedScreen() {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
-  // 데이터 로드 함수
-  const loadMoreData = () => {
+  const loadMoreData = useCallback(() => {
     if (loading || !hasMore) return;
 
     setLoading(true);
-
     setTimeout(() => {
       const newItems = fetchData(page);
 
@@ -177,17 +170,14 @@ export default function FeedScreen() {
       setPage((prevPage) => prevPage + 1);
       setLoading(false);
 
-      if (page >= 5) {
-        // 5페이지까지만 데이터가 있다고 가정
-        setHasMore(false);
-      }
-    }, 1000); // 1초 로딩 지연 시뮬레이션
-  };
+      if (page >= 5) setHasMore(false);
+    }, 1000);
+  }, [loading, hasMore, page]);
 
   // 초기 데이터 로드
   useEffect(() => {
     loadMoreData();
-  }, []);
+  }, [loadMoreData]);
 
   // 로딩 인디케이터 렌더링 함수
   const renderFooter = () => {
@@ -220,10 +210,10 @@ export default function FeedScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
     paddingVertical: 20,
-    alignItems: "center",
+    alignItems: 'center',
   },
 });

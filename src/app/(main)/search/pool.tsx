@@ -1,6 +1,7 @@
-import { StyleSheet, TextInput, TouchableOpacity, FlatList } from 'react-native';
-import { View, Text } from '@/components/common/Themed';
 import { useState } from 'react';
+import { StyleSheet, TextInput, TouchableOpacity, FlatList } from 'react-native';
+
+import { View, Text } from '@/components/common/Themed';
 
 // 임시 데이터
 const SAMPLE_POOLS = [
@@ -19,15 +20,16 @@ export default function PoolSearchScreen() {
     if (query.trim() === '') {
       setPools(SAMPLE_POOLS);
     } else {
-      const filtered = SAMPLE_POOLS.filter(pool => 
-        pool.name.toLowerCase().includes(query.toLowerCase()) ||
-        pool.address.toLowerCase().includes(query.toLowerCase())
+      const filtered = SAMPLE_POOLS.filter(
+        (pool) =>
+          pool.name.toLowerCase().includes(query.toLowerCase()) ||
+          pool.address.toLowerCase().includes(query.toLowerCase()),
       );
       setPools(filtered);
     }
   };
 
-  const renderPoolItem = ({ item }: { item: typeof SAMPLE_POOLS[0] }) => (
+  const renderPoolItem = ({ item }: { item: (typeof SAMPLE_POOLS)[0] }) => (
     <TouchableOpacity style={styles.poolItem}>
       <View style={styles.poolInfo}>
         <Text style={styles.poolName}>{item.name}</Text>
@@ -52,7 +54,7 @@ export default function PoolSearchScreen() {
       <FlatList
         data={pools}
         renderItem={renderPoolItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         contentContainerStyle={styles.listContent}
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
@@ -123,4 +125,3 @@ const styles = StyleSheet.create({
     color: '#9CA3AF',
   },
 });
-

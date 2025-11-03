@@ -1,6 +1,7 @@
-import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { Text } from "./Themed";
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+
+import { Text } from './Themed';
 
 type SegmentedControlProps = {
   options: string[];
@@ -16,9 +17,9 @@ export default function SegmentedControl({
   options,
   selectedIndex,
   alphaValue = 1.0,
-  selectedBackgroundColor = "#FFFFFF",
-  activeTextColor = "#111827",
-  inactiveTextColor = "#6B7280",
+  selectedBackgroundColor = '#FFFFFF',
+  activeTextColor = '#111827',
+  inactiveTextColor = '#6B7280',
   onSelect,
 }: SegmentedControlProps) {
   const translucentBg = `rgba(243, 243, 243, ${alphaValue})`;
@@ -34,10 +35,7 @@ export default function SegmentedControl({
           >
             {isSelected && (
               <View
-                style={[
-                  styles.selectedBackground,
-                  { backgroundColor: selectedBackgroundColor },
-                ]}
+                style={[styles.selectedBackground, { backgroundColor: selectedBackgroundColor }]}
               />
             )}
             <Text
@@ -58,25 +56,25 @@ export default function SegmentedControl({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 30,
     height: 44,
     padding: 3,
   },
   optionContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   selectedBackground: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
     borderRadius: 30,
 
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
@@ -84,7 +82,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 14,
-    fontWeight: "500",
+    fontWeight: '500',
     zIndex: 10,
   },
   selectedText: {},
